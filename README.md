@@ -40,7 +40,9 @@
 
 ## Time Frame estimates
 
-- Authentication: 2 days
-- The rest of Rails, 1 day
-- React: 2 days
-- CSS: 1 day
+| Section           | Estimated Time |
+| ----------------- | :------------: |
+| Authentication    |     2 days     |
+| The rest of Rails |     1 day      |
+| React             |     2 days     |
+| CSS               |     1 day      |
