@@ -1,0 +1,3 @@
+Volcano.create(name: "Fuego", image_url: "", 
+content: "Pictured here is the Fuego Volcano of Guatemala, it is a day's hike from the base. No climbing neede, but physical condition is needed. The experience compared to many volcanoes worldwide is that you get the opportunity to walk above cloud cover. Also Guatemala is an overall inexpensive vacation hub.", 
+elevation: "3763 m /12346 ft", location: "Guatemala", ideal_for: "Intermediate hikers, beginners are only recommended if they have serious physical shape." )
