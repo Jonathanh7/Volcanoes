@@ -525,3 +525,535 @@ Processing by VolcanosController#index as HTML
 Completed 200 OK in 41ms (Views: 22.1ms | ActiveRecord: 7.2ms | Allocations: 9715)
 
 
+  [1m[35m (9.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (127.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "volcanoes_development"[0m
+  [1m[35m (106.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "volcanoes_test"[0m
+  [1m[35m (724.8ms)[0m  [1m[35mCREATE DATABASE "volcanoes_development" ENCODING = 'unicode'[0m
+  [1m[35m (259.0ms)[0m  [1m[35mCREATE DATABASE "volcanoes_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites" CASCADE[0m
+  [1m[35m (24.0ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "volcano_id" bigint NOT NULL, "user_id" bigint NOT NULL, "comment" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_volcano_id" ON "favorites"  ("volcano_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (23.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "volcanos" CASCADE[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "volcanos" ("id" bigserial primary key, "image_url" character varying, "content" text, "elevation" character varying, "location" character varying, "ideal_for" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying)[0m
+  [1m[35m (13.3ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (4.2ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_e8be09715b"
+FOREIGN KEY ("volcano_id")
+  REFERENCES "volcanos" ("id")
+[0m
+  [1m[35m (15.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408040934)[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200407014249),
+(20200407213901),
+(20200407214343);
+
+[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-09 21:33:34.834264"], ["updated_at", "2020-04-09 21:33:34.834264"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d0250180ded503c535c578cba617f14724a38cff"], ["created_at", "2020-04-09 21:33:34.862574"], ["updated_at", "2020-04-09 21:33:34.862574"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "favorites" CASCADE[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "volcano_id" bigint NOT NULL, "user_id" bigint NOT NULL, "comment" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_volcano_id" ON "favorites"  ("volcano_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "volcanos" CASCADE[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "volcanos" ("id" bigserial primary key, "image_url" character varying, "content" text, "elevation" character varying, "location" character varying, "ideal_for" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "name" character varying)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (8.4ms)[0m  [1m[35mALTER TABLE "favorites" ADD CONSTRAINT "fk_rails_e8be09715b"
+FOREIGN KEY ("volcano_id")
+  REFERENCES "volcanos" ("id")
+[0m
+  [1m[35m (15.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200408040934)[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200407014249),
+(20200407213901),
+(20200407214343);
+
+[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-04-09 21:33:35.142229"], ["updated_at", "2020-04-09 21:33:35.142229"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (3.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2020-04-09 21:33:35.162710"], ["key", "environment"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d0250180ded503c535c578cba617f14724a38cff"], ["created_at", "2020-04-09 21:33:35.183784"], ["updated_at", "2020-04-09 21:33:35.183784"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (22.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVolcano Create (1.5ms)[0m  [1m[32mINSERT INTO "volcanos" ("image_url", "content", "elevation", "location", "ideal_for", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image_url", "https://i.imgur.com/KTIM1IOm.jpg"], ["content", "Pictured here is the Fuego Volcano of Guatemala, it is a day's hike from the base. No climbing needed, but physical condition is needed. The experience compared to many volcanoes worldwide is that you get the opportunity to walk above cloud cover. Also Guatemala is an overall inexpensive vacation hub."], ["elevation", "3,763 m /12,346 ft"], ["location", "Guatemala"], ["ideal_for", "Intermediate hikers, beginners are only recommended if they have serious physical shape."], ["created_at", "2020-04-09 21:33:35.422984"], ["updated_at", "2020-04-09 21:33:35.422984"], ["name", "Fuego"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVolcano Create (0.6ms)[0m  [1m[32mINSERT INTO "volcanos" ("image_url", "content", "elevation", "location", "ideal_for", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image_url", "https://i.imgur.com/HNmrWrp.jpg"], ["content", "Known for it's historical significance with Pompeii, Mt. Vesuvius is the most visited and famous Volcano worldwide "], ["elevation", "1,281 m /4,203 ft"], ["location", "Naples, Italy"], ["ideal_for", "Travelers of all levels of adventure, unlike the grand majority of volcanoes. You just have to take a train/bus. The bus leaves you near the top of Vesuvius from which you can take a 30 minute trail to the top"], ["created_at", "2020-04-09 21:33:35.439964"], ["updated_at", "2020-04-09 21:33:35.439964"], ["name", "Mt. Vesuvius"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mVolcano Create (0.6ms)[0m  [1m[32mINSERT INTO "volcanos" ("image_url", "content", "elevation", "location", "ideal_for", "created_at", "updated_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["image_url", "https://i.imgur.com/rHcFR6A.jpg"], ["content", "Africa's highest mountain, Kilimanjaro is made up of three volcanic peaks, Kibo, Mawenzi, and Shira. Kibo is the highest peak as well as dormant while the other two are extinct. There is no recoreded eruptions and scientists estimate Kilimanjaro to have last erupted 200,000 years ago."], ["elevation", "5,881 m /19,295 ft"], ["location", "Tanzania"], ["ideal_for", "All travelers although due to it's extreme height, altitude sickness is a commmon concern if precautions are not followed. One of such is to trek the path in a week period to acclimate instead of trekking it in a much shorter time span. But it all pays off as it is just a hike not a climb on Africa's highest mountain."], ["created_at", "2020-04-09 21:33:35.454751"], ["updated_at", "2020-04-09 21:33:35.454751"], ["name", "Kilimanjaro"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-04-09 17:34:36 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.9ms | Allocations: 309)
+Completed 200 OK in 29ms (Views: 22.0ms | ActiveRecord: 0.0ms | Allocations: 1622)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-04-09 17:34:42 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/volcanos" for ::1 at 2020-04-09 17:35:07 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.7ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 56ms (Views: 33.0ms | ActiveRecord: 12.9ms | Allocations: 9255)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-09 17:51:01 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 25ms (ActiveRecord: 0.0ms | Allocations: 1528)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authentication):
+  
+app/controllers/authentication_controller.rb:17:in `login_params'
+app/controllers/authentication_controller.rb:4:in `login'
+Started GET "/rails/info" for ::1 at 2020-04-09 17:56:33 -0400
+Processing by Rails::InfoController#index as HTML
+Redirected to http://localhost:3000/rails/info/routes
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms | Allocations: 1077)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-04-09 17:56:33 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb [37 times] (Duration: 14.0ms | Allocations: 5152)
+  Rendered /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/actionpack-6.0.2.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 4.2ms | Allocations: 690)
+  Rendered /Users/jonathanhernandez/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/railties-6.0.2.2/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 25.7ms | Allocations: 8213)
+Completed 200 OK in 43ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 9355)
+
+
+Started POST "/users" for ::1 at 2020-04-09 17:57:14 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 21ms (ActiveRecord: 0.0ms | Allocations: 1419)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 17:57:31 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:04:46 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 26ms (ActiveRecord: 0.0ms | Allocations: 1421)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:06:09 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:11:06 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.0ms | Allocations: 1421)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:13:11 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 17ms (ActiveRecord: 0.0ms | Allocations: 1421)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:51:in `user_params'
+app/controllers/users_controller.rb:19:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:15:57 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 42ms (ActiveRecord: 0.0ms | Allocations: 1810)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:16:29 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 43ms (ActiveRecord: 0.0ms | Allocations: 1435)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:46:54 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 9ms (ActiveRecord: 0.0ms | Allocations: 128)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 18:47:05 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 131)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/auth/login" for ::1 at 2020-04-09 18:47:53 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 153)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authentication):
+  
+app/controllers/authentication_controller.rb:17:in `login_params'
+app/controllers/authentication_controller.rb:4:in `login'
+Started POST "/auth/login" for ::1 at 2020-04-09 18:48:36 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 121)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authentication):
+  
+app/controllers/authentication_controller.rb:17:in `login_params'
+app/controllers/authentication_controller.rb:4:in `login'
+Started POST "/auth/login" for ::1 at 2020-04-09 18:48:53 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authentication):
+  
+app/controllers/authentication_controller.rb:17:in `login_params'
+app/controllers/authentication_controller.rb:4:in `login'
+Started POST "/auth/login" for ::1 at 2020-04-09 18:50:44 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: authentication):
+  
+app/controllers/authentication_controller.rb:17:in `login_params'
+app/controllers/authentication_controller.rb:4:in `login'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/user" for ::1 at 2020-04-09 18:58:19 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/user"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/user" for ::1 at 2020-04-09 18:58:36 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/user"):
+  
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2020-04-09 18:59:38 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 16ms (ActiveRecord: 0.0ms | Allocations: 1820)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:00:22 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 15ms (ActiveRecord: 0.0ms | Allocations: 1433)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:01:37 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 37ms (ActiveRecord: 0.0ms | Allocations: 1423)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:01:48 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:02:08 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 120)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:08:18 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:08:45 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:52:in `user_params'
+app/controllers/users_controller.rb:20:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:33:33 -0400
+Error occurred while parsing request parameters.
+Contents:
+
+ {
+"user":{
+"email": "Jon@yahoo.com"
+"password":"123"
+}}
+  
+ActionDispatch::Http::Parameters::ParseError (767: unexpected token at '{
+"user":{
+"email": "Jon@yahoo.com"
+"password":"123"
+}}'):
+  
+actionpack (6.0.2.2) lib/action_dispatch/http/parameters.rb:115:in `rescue in parse_formatted_parameters'
+actionpack (6.0.2.2) lib/action_dispatch/http/parameters.rb:111:in `parse_formatted_parameters'
+actionpack (6.0.2.2) lib/action_dispatch/http/request.rb:381:in `block in POST'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch'
+rack (2.2.2) lib/rack/request.rb:69:in `fetch_header'
+actionpack (6.0.2.2) lib/action_dispatch/http/request.rb:380:in `POST'
+actionpack (6.0.2.2) lib/action_dispatch/http/parameters.rb:55:in `parameters'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:279:in `_wrapper_enabled?'
+actionpack (6.0.2.2) lib/action_controller/metal/params_wrapper.rb:244:in `process_action'
+activerecord (6.0.2.2) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.0.2.2) lib/abstract_controller/base.rb:136:in `process'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.2) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.2) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.2) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.2) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.2) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.2) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Error occurred while parsing request parameters.
+Contents:
+
+ {
+"user":{
+"email": "Jon@yahoo.com"
+"password":"123"
+}}
+Started POST "/users" for ::1 at 2020-04-09 19:34:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"Jon@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (3.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Jon@yahoo.com"], ["password_digest", "$2a$12$rEfBZSrrshJ5cM8cqZxibumNXT1G02hf1op.ptEdFPD8ihfm4MHLe"], ["created_at", "2020-04-09 23:35:00.605798"], ["updated_at", "2020-04-09 23:35:00.605798"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 500 Internal Server Error in 926ms (ActiveRecord: 24.6ms | Allocations: 41991)
+
+
+  
+NoMethodError (undefined method `encode' for #<UsersController:0x00007fc89ec43c18>):
+  
+app/controllers/users_controller.rb:23:in `create'
+Started POST "/users" for ::1 at 2020-04-09 19:35:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"Jon@yahoo.com", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "Jon@yahoo.com"], ["password_digest", "$2a$12$X8xZcvOmbf27GddTnVfeIu9uMYATRKzzAH21V8XOGqjZHexpWUpTm"], ["created_at", "2020-04-09 23:36:00.008381"], ["updated_at", "2020-04-09 23:36:00.008381"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 201 Created in 637ms (Views: 2.6ms | ActiveRecord: 15.0ms | Allocations: 6054)
+
+
