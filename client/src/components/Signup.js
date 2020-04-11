@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+
 export default class SignUP extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+    }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.name
+    });
+    }
+
+
+
   render() {
     return (
       <Form className="login-form">
