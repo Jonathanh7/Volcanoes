@@ -3,19 +3,10 @@ import { Form, Button } from 'react-bootstrap'
 import axios from "axios"; 
 
 export default class Login extends Component {
-  constructor(prop) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-      loginErrors: "",
-    };
-
-  }
 
   render() {
     return (
-      <Form>
+      <Form className="login-form">
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
@@ -29,10 +20,9 @@ export default class Login extends Component {
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
   <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
-  <Button variant="primary" type="submit">
-    Submit
+  <Button variant="primary" type="submit" className="btn-lg btn-block">
+    Login 
   </Button>
 </Form>
         

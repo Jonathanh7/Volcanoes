@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from 'react-router-dom'
 import Login from './components/Login';
+import Signup from './components/Signup';
 
 export default class Container extends Component {
   constructor() {
@@ -13,6 +14,7 @@ export default class Container extends Component {
         <Switch>
           <Route path="/" exact />
           <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
         </Switch>
       </div>
     );
