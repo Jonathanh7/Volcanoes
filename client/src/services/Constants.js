@@ -31,3 +31,22 @@ export const verifyUser = async () => {
 export const removeToken = () => {
   api.defaults.headers.common.authorization = null;
 }
+
+export const readAllVolcano = async () => {
+  const resp = await api.get('/volcanos');
+  return resp.data;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

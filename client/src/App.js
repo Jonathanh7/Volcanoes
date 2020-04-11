@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header'
+import Container from './Container'
 
 
 class App extends Component {
@@ -11,7 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello World </h1>
+      <Header />
+      <Container /> 
+
       </div>
     );
   }
