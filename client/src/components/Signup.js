@@ -1,31 +1,20 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import { registerUser } from "../services/Constants";
 
-export default class SignUP extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-    }
+export default class Signup extends Component {
+  constructor(props) {
+    super(props);
   }
 
-  handleChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.name
-    });
-    }
 
 
-
-  render() {
+  render(props) {
     return (
-      <Form className="login-form">
+      <Form onSubmit={this.props.handleRegister} className="login-form">
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control name="email" onChange={this.props.handleChange} type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -33,11 +22,7 @@ export default class SignUP extends Component {
 
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password Confirmation</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control name="password" onChange={this.props.handleChange} type="password" placeholder="Password" />
         </Form.Group>
 
         <Button variant="primary" type="submit" className="btn-lg btn-block">

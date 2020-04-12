@@ -10,7 +10,10 @@ export default function Header() {
     <Nav className="mr-auto">
         <Nav.Link as={Link} to="/login">Login</Nav.Link>
       <Nav.Link as={Link} to="/signup">Sign Up </Nav.Link>
-    </Nav>
+      </Nav>
+      <Navbar.Text className="text-center">
+        Volcanic Escapades
+        </Navbar.Text>
   </Navbar>
 
   )
