@@ -6,8 +6,18 @@
   height: 100%;
 }
 
-  /* .text-center {
-  position: absolute;
-     width: 100%;
-    text-align: center; 
-}   */
+.landing {
+  background-image: url("https://i.imgur.com/uKlyGl6.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.time {
+  background-image: url("https://i.imgur.com/KTIM1IO.jpg");
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.main-title {
+  text-align: center;
+}

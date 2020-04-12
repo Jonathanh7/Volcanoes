@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Route, Switch, Redirect } from 'react-router-dom'
-import Login from './components/Login';
-import Signup from './components/Signup';
-import { loginUser, registerUser } from './services/Constants'
+import { Route, Switch, Redirect } from "react-router-dom";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import { loginUser, registerUser } from "./services/Constants";
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 export default class Container extends Component {
   constructor() {
@@ -10,67 +12,73 @@ export default class Container extends Component {
     this.state = {
       currentUser: null,
       formData: {
-        email: '',
-        password: ''
+        email: "",
+        password: "",
       },
-      loggedIn:false,
-    }
+      loggedIn: false,
+    };
   }
 
   handleChange = (e) => {
-    console.log("bread")
     const { name, value } = e.target;
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       formData: {
         ...prevState.formData,
-        [name]: value
-      }
-    }))
-  }
+        [name]: value,
+      },
+    }));
+  };
   handleLogin = async (e) => {
-    console.log("Kangaroo")
-    e.preventDefault()
-    const currentUser = await loginUser(this.state.formData)
+    e.preventDefault();
+    const currentUser = await loginUser(this.state.formData);
     this.setState({
       currentUser,
-      loggedIn:true
-    })
-}
+      loggedIn: true,
+    });
+  };
   handleRegister = async (e) => {
-    e.preventDefault()
-    const currentUser = await registerUser(this.state.formData)
+    e.preventDefault();
+    const currentUser = await registerUser(this.state.formData);
     this.setState({
-      currentUser
-    })
-  }
-  
+      currentUser,
+    });
+  };
 
   render() {
-    console.log(this.state.loggedIn)
-const australia = this.state.loggedIn ? <Redirect to="/main" /> : null
+    console.log(this.state.loggedIn);
+    const australia = this.state.loggedIn ? <Redirect to="/main" /> : null;
 
     return (
       <div className="contain">
+        <Header /> 
         {australia}
+        <div className="time">
         <Switch>
           <Route path="/" exact />
-          <Route path="/login" render={() => (
-            <Login
-            handleChange = {this.handleChange}
-            handleLogin = {this.handleLogin}
-            />
-            
-          )} />
-          <Route path="/signup" render={() => (
-            <Signup
-              handleRegister={this.handleRegister}
-              handleLogin={this.handleLogin}
-              handleChange={this.handleChange}
-            />
-          )
-          } />
-        </Switch>
-      </div>
+          <Route
+            path="/login"
+            render={() => (
+              <Login
+                handleChange={this.handleChange}
+                handleLogin={this.handleLogin}
+              />
+            )}
+          />
+          <Route
+            path="/signup"
+            render={() => (
+              <Signup
+                handleRegister={this.handleRegister}
+                handleLogin={this.handleLogin}
+                handleChange={this.handleChange}
+              />
+            )}
+          />
+          <Route path="/main" component={Main} /> 
+          </Switch>
+          </div>
+        </div>
+   
     );
   }
 }
