@@ -3135,3 +3135,293 @@ Processing by VolcanosController#index as HTML
 Completed 200 OK in 47ms (Views: 25.8ms | ActiveRecord: 11.0ms | Allocations: 8460)
 
 
+Started GET "/volcanos" for ::1 at 2020-04-12 18:44:59 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (2.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 2.4ms | Allocations: 1422)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:45:01 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:45:21 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.8ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.8ms | Allocations: 1351)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:45:59 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:46:07 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 1350)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:46:11 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:46:16 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.6ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.6ms | Allocations: 1349)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-12 18:49:33 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"email"=>"jon@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"jon@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jon@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4:in `login'
+Completed 200 OK in 277ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 1027)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:49:33 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 1350)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:57:58 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (2.0ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 31ms (Views: 25.5ms | ActiveRecord: 2.0ms | Allocations: 1422)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:58:41 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:58:55 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.3ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 18:59:00 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:09:37 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.0ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.0ms | Allocations: 1422)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:10:02 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-12 19:10:38 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"email"=>"jon@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"jon@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jon@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4:in `login'
+Completed 200 OK in 290ms (Views: 0.5ms | ActiveRecord: 2.5ms | Allocations: 1027)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:10:38 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:11:25 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:11:50 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:11:53 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:12:07 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.1ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 1.1ms | Allocations: 1349)
+
+
+Started POST "/auth/login" for ::1 at 2020-04-12 19:25:51 -0400
+Processing by AuthenticationController#login as HTML
+  Parameters: {"email"=>"jon@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"jon@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "jon@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:4:in `login'
+Completed 200 OK in 273ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 1084)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:25:51 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.7ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.7ms | Allocations: 1366)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:26:13 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:27:03 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (3.9ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 3.9ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:33:21 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 1.4ms | Allocations: 1422)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:33:24 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:33:32 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.7ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:35:57 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:35:59 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:36:01 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.3ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:38:10 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:38:12 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.3ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:43:57 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.4ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:44:02 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.6ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:45:05 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:45:08 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.5ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.5ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:56:19 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.7ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 63ms (Views: 61.4ms | ActiveRecord: 1.7ms | Allocations: 1425)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:56:22 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.2ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.2ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 19:59:10 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (0.6ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.6ms | Allocations: 1349)
+
+
+Started GET "/volcanos" for ::1 at 2020-04-12 20:28:39 -0400
+Processing by VolcanosController#index as HTML
+  [1m[36mVolcano Load (1.6ms)[0m  [1m[34mSELECT "volcanos".* FROM "volcanos"[0m
+  ↳ app/controllers/volcanos_controller.rb:8:in `index'
+Completed 200 OK in 27ms (Views: 22.5ms | ActiveRecord: 1.6ms | Allocations: 1422)
+
+
