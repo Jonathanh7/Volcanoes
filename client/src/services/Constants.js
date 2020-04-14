@@ -32,6 +32,16 @@ export const removeToken = () => {
   api.defaults.headers.common.authorization = null;
 }
 
+export const signOut = async user => {
+  try {
+    await localStorage.clear()
+    return true
+  } catch (error) {
+    throw error
+  }
+}
+
+
 export const readAllVolcano = async () => {
   const resp = await api.get('/volcanos');
   return resp.data;
