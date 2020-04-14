@@ -5,6 +5,8 @@ import Signup from "./components/Signup";
 import { loginUser, registerUser } from "./services/Constants";
 import Header from "./components/Header"
 import Main from "./components/Main"
+import Details from "./components/Details"
+import Footer from "./components/Footer"
 
 export default class Container extends Component {
   constructor() {
@@ -74,11 +76,13 @@ export default class Container extends Component {
               />
             )}
           />
-          <Route path="/main" component={Main} /> 
+            <Route  path="/main"  component={Main} /> 
+           
           </Switch>
-          </div>
         </div>
-   
+        <Footer />
+        </div>
+
     );
   }
 }

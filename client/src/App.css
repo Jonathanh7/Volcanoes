@@ -21,3 +21,26 @@
 .main-title {
   text-align: center;
 }
+
+.names {
+  text-align: center;
+  color: white;
+}
+.card {
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* .pic img{
+  height: 500px;
+  border: 1px solid black; 
+  width: 60%; 
+} */
+
+footer {
+  background-color: #3a7bff;
+}
+
+.navbar {
+  position: sticky;
+}
