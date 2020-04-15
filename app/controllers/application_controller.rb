@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
-
+    include ActionController::ImplicitRender
+    
       SECRET_KEY = Rails.env == 'production' ? ENV['LAVA'] : Rails.application.secrets.secret_key_base.to_s
     
       def encode(payload, exp=30.days.from_now)

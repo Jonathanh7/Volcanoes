@@ -27,7 +27,7 @@ class VolcanosController < ApplicationController
   # PATCH/PUT /volcanos/1
   def update
     if @volcano.update(volcano_params)
-      render json: @volcano
+      render json: @volcano, status: :ok
     else
       render json: @volcano.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class VolcanosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def volcano_params
-      params.require(:volcano).permit(:image_url, :content, :elevation, :location, :ideal_for)
+      params.require(:volcano).permit(:name, :image_url, :content, :elevation, :location, :ideal_for)
     end
 end
