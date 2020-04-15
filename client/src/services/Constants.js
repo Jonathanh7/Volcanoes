@@ -19,7 +19,7 @@ export const registerUser = async (registerData) => {
 }
 
 export const verifyUser = async () => {
- const token = localStorage.setItem('authToken');
+ const token = localStorage.getItem('authToken');
   if (token) {
     api.defaults.headers.common.authorization = `Bearer ${token}`
     const resp = await api.get('/auth/verify');
@@ -34,6 +34,7 @@ export const removeToken = () => {
 
 export const signOut = async user => {
   try {
+    console.log("I got here")
     await localStorage.clear()
     return true
   } catch (error) {
@@ -47,16 +48,39 @@ export const readAllVolcano = async () => {
   return resp.data;
 }
 
+export const addToFavorites = async (params) => {
+  if (localStorage.getItem('authToken')) {
+    api.defaults.headers.common.authorization = `Bearer ${localStorage.getItem('authToken')}`;
+    const resp = await api.post('/favorites', params);
 
+    return resp.data;
+  }
 
+}
 
+export const getAllCurrentUserFavorites = async () => {
+  if (localStorage.getItem('authToken')) {
+    api.defaults.headers.common.authorization = `Bearer ${localStorage.getItem('authToken')}`;
+    const resp = await api.get('/favorites');
+    
+    return resp.data;
+  }
+}
 
+export const deleteSelectedFavorite = async (id) => {
+  if (localStorage.getItem('authToken')) {
+    api.defaults.headers.common.authorization = `Bearer ${localStorage.getItem('authToken')}`;
+    const resp = await api.delete(`/favorites/${id}`);
+    
+    return resp.data;
+  }
+}
 
-
-
-
-
-
-
-
-
+export const updateVolcano = async (id, params) => {
+  if (localStorage.getItem('authToken')) {
+    api.defaults.headers.common.authorization = `Bearer ${localStorage.getItem('authToken')}`;
+    const resp = await api.put(`/volcanos/${id}`, { volcano: params });
+    
+    return resp.data;
+  }
+}

@@ -3,6 +3,7 @@ import { readAllVolcano } from '../services/Constants'
 import { Link, Route } from 'react-router-dom'; 
 import Details from './Details'
 import { Card, ListGroup } from 'react-bootstrap'
+import EditVolcano from './EditVolcano';
 
 export default class Main extends Component {
   constructor(props) {
@@ -32,6 +33,8 @@ export default class Main extends Component {
         <Link to={`/main/${volcanoes.id}`} >
           <h2 key={volcanoes.id}className="names">{volcanoes.name}</h2>
             </Link>
+
+            <Link to={`/main/${volcanoes.id}/edit`}>Edit</Link>
             </ListGroup>
         </Card>
       )
@@ -48,6 +51,14 @@ export default class Main extends Component {
       <Route exact path="/main/:id" render={(props) =>
           <Details
             volcanos={this.state.result}
+            {...props}
+          />
+      } />
+        
+        <Route exact path="/main/:id/edit" render={(props) =>
+          <EditVolcano
+            volcanos={this.state.result}
+            updateVolcano={this.props.updateVolcano}
             {...props}
           />
       } />

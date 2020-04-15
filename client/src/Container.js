@@ -2,18 +2,20 @@ import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { loginUser, registerUser} from "./services/Constants";
+import { updateVolcano, getAllCurrentUserFavorites, deleteSelectedFavorite, loginUser, registerUser, verifyUser } from "./services/Constants";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Details from "./components/Details";
 import Footer from "./components/Footer";
-import SignOut from './components/SignOut'
-import { verifyUser } from './services/Constants'
+import SignOut from "./components/SignOut";
+import Favorite from "./components/Favorite";
+
 
 export default class Container extends Component {
   constructor() {
     super();
     this.state = {
+      favorites:[{}],
       currentUser: null,
       formData: {
         email: "",
@@ -47,31 +49,50 @@ export default class Container extends Component {
       currentUser,
     });
   };
-  
-  clearUser = () => this.setState({ user: null, loggedIn:false});
+
+  clearUser = () => this.setState({ user: null, loggedIn: false });
 
   handleVerify = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
-      this.setState({ currentUser })
+      this.setState({ currentUser });
     }
+  };
+  //   componentDidMount = () => {
+  //   this.handleVerify()
+  // }
+
+  addToFavorites = (params) => {
+  //console.log(volcano.id)
+
+    // if (this.state.favorites.some(e => e.id === volcano.id)) {
+   
+   /* this.setState(prevState=>({
+      favorites: [...prevState.favorites, volcano]
+    }))*/
+
+    // }
+
+
+   
+    
+ 
   }
-//   componentDidMount = () => {
-//   this.handleVerify()
-// }
+     
+      
+     
+ 
+      
+  
 
   render() {
-    let { user } = this.state.currentUser !== null && this.state.currentUser 
+    let { user } = this.state.currentUser !== null && this.state.currentUser;
 
-    console.log('loggein', this.state.loggedIn);
+    console.log("favs", this.state.favorites);
     const australia =
       this.state.loggedIn && this.state.loggedIn ? (
         <Redirect to="/main" />
       ) : null;
-    
-  
-    
-
     return (
       <div className="contain">
         <Header />
@@ -99,12 +120,32 @@ export default class Container extends Component {
                 />
               )}
             />
-            <Route path="/main" component={Main} />
+            {/* <Route
+              path="/main"
+              component={Main}
+              addToFavorites={this.addToFavorites}
+            /> */}
+            <Route
+              path="/main"
+              render={(props) => (
+                <Main {...props} addToFavorites={this.addToFavorites} updateVolcano={updateVolcano}/>
+              )}
+            />
+
             <Route
               exact
               path="/sign-out"
               render={(props) => (
-                <SignOut {...props} clearUser={this.clearUser} user={user}/>
+                <SignOut {...props} clearUser={this.clearUser} user={user} />
+              )}
+            />
+            <Route
+              path="/favorite"
+              render={(props) => (
+                <Favorite {...props}
+                  getAllCurrentUserFavorites={getAllCurrentUserFavorites}
+                  deleteSelectedFavorite={deleteSelectedFavorite}
+                />
               )}
             />
           </Switch>

@@ -1,11 +1,11 @@
-class FavoritesController < ApplicationController
+class FavoritesController < AuthenticationController
   before_action :set_favorite, only: [:show, :update, :destroy]
 
   # GET /favorites
   def index
-    @favorites = Favorite.all
+    @favorites = current_user.favorites.map(&:data)
 
-    render json: @favorites
+    render json: @favorites, status: :ok
   end
 
   # GET /favorites/1
@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
 
   # POST /favorites
   def create
-    @favorite = Favorite.new(favorite_params)
+    @favorite = current_user.favorites.new(favorite_params)
 
     if @favorite.save
       render json: @favorite, status: :created, location: @favorite
@@ -46,6 +46,6 @@ class FavoritesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def favorite_params
-      params.require(:favorite).permit(:volcano_id, :user_id, :comment)
+      params.permit(:volcano_id, :user_id, :comment)
     end
 end
